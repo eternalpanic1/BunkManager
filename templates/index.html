@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Attendance Tracker</title>
+    <link rel="stylesheet" href="/templates/styles.css">
+</head>
+
+<body>
+    <div id="attendance-form">
+        <h2>Attendance Tracker</h2>
+        <label for="total-classes">Total Classes:</label>
+        <input type="number" id="total-classes" placeholder="Enter total classes">
+
+        <label for="attended-classes">Classes Attended:</label>
+        <input type="number" id="attended-classes" placeholder="Enter classes attended">
+
+        <label for="goal-percentage">Goal Attendance Percentage:</label>
+        <input type="range" id="goal-percentage" min="0" max="100" step="1" value="75">
+        <output for="goal-percentage" id="output">75%</output>
+
+        <button onclick="calculateAttendance()">Calculate</button>
+
+        <div id="attendance-summary"></div>
+
+        <script src="/calculate_attendance.js"></script>
+    </div>
+</body>
+
+</html>
