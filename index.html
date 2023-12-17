@@ -1,32 +1,37 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Attendance Tracker</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>VueJS</title>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
 </head>
-
 <body>
-    <div id="attendance-form">
-        <h2>Attendance Tracker</h2>
-        <label for="total-classes">Total Classes:</label>
-        <input type="number" id="total-classes" placeholder="Enter total classes">
 
-        <label for="attended-classes">Classes Attended:</label>
-        <input type="number" id="attended-classes" placeholder="Enter classes attended">
+    <div id="app">
+        <h2>Welcome to Bunk Manager</h2>
+        <h3> Total Classes: {{ total }}</h3>
+        <h3> Goal Percentage: {{ goal }}%</h3>
+        <input type="range" v-model="goal" min="0" max="100" @input="calculate">
 
-        <label for="goal-percentage">Goal Attendance Percentage:</label>
-        <input type="range" id="goal-percentage" min="0" max="100" step="1" value="75">
-        <output for="goal-percentage" id="output">75%</output>
+        <h3> Attended: {{ attended }}</h3>
+        <button @click="decreaseAttended">-</button>
+        <button @click="increaseAttended">+</button>
 
-        <button onclick="calculateAttendance()">Calculate</button>
+        <h3> Skipped: {{ skipped }}</h3>
+        <button @click="decreaseSkipped">-</button>
+        <button @click="increaseSkipped">+</button>
 
-        <div id="attendance-summary"></div>
+        <h3> Current Percentage: {{ current }}%</h3>
+        
 
-        <script src="calculate_attendance.js"></script>
+        <button @click="calculate">
+            <span>Calculate Attendance</span>
+        </button>
+        <p>{{ message }}</p>
     </div>
-</body>
 
+    <script src="app.js"></script>
+</body>
 </html>
