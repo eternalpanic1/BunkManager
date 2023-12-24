@@ -1,8 +1,8 @@
 const app = Vue.createApp({
     data() {
         return {
-            attended: 292,
-            skipped: 95,
+            attended: 0,
+            skipped: 0,
             total: 0,
             current: 0,
             goal: 75,
