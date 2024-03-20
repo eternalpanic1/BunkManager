@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% block body %}
+
+    <div id="app">
+        <h2>Welcome to Bunk Manager</h2>
+
+        <h3> Total Classes: <span id="totalClasses">0</span></h3>
+        <h3> Goal Percentage: <span id="goalPercentage">75</span>%</h3>
+        <input type="range" id="goalRange" min="0" max="100" oninput="goalChange()">
+
+        <h3> Attended: <span id="attendedClasses">0</span></h3>
+        <button onclick="decreaseAttended()">-</button>
+        <button onclick="increaseAttended()">+</button>
+
+        <h3> Skipped: <span id="skippedClasses">0</span></h3>
+        <button onclick="decreaseSkipped()">-</button>
+        <button onclick="increaseSkipped()">+</button>
+
+        <h3> Current Percentage: <span id="currentPercentage">0</span>%</h3>
+
+        <p id="message"></p>
+
+        <button onclick="saveAttendance()">
+            <span>Save Attendance</span>
+        </button>
+    </div>
+
+    <script src="static/app.js"></script>
+
+    {% endblock %}
