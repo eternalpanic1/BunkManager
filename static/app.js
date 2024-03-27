@@ -1,6 +1,34 @@
-let attended = 0;
-let skipped = 0;
-let goal = 75;
+let attended;
+let skipped;
+let goal;
+
+function loadAttendance() {
+    const data = {};
+
+    return fetch('/loadAttendance', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(data)
+    })
+    .then(response => {
+        if (!response.ok) {
+            throw new Error('Failed to load attendance');
+        }
+        return response.json();
+    })
+    .then(data => {
+        attended = data.attended;
+        skipped = data.skipped;
+        goal = data.goal;
+        updateAttendance();
+    })
+    .catch(error => {
+        console.error('Error:', error);
+    });
+}
+
 
 function increaseAttended() {
     attended++;
@@ -58,7 +86,7 @@ function saveAttendance() {
         goal: goal
     };
 
-    fetch('/save-attendance', {
+    fetch('/saveAttendance', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
@@ -80,10 +108,7 @@ document.getElementById('decreaseAttendedBtn').addEventListener('click', decreas
 document.getElementById('increaseSkippedBtn').addEventListener('click', increaseSkipped);
 document.getElementById('decreaseSkippedBtn').addEventListener('click', decreaseSkipped);
 document.getElementById('goalRange').addEventListener('input', goalChange);
-document.getElementById('calculateBtn').addEventListener('click', calculateAttendance);
 document.getElementById('saveBtn').addEventListener('click', saveAttendance);
-document.getElementById('').addEventListener('click', increaseSkipped);
-document.getElementById('decreaseSkippedBtn').addEventListener('click', decreaseSkipped);
 
 // Initialize attendance data and calculate attendance on page load
 updateAttendance();
