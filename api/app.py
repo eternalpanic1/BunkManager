@@ -45,24 +45,23 @@ def signup():
     if request.method == "POST":
         email = request.form['email']
         password = request.form['password']
-        
+        username = request.form['username']
         try:
             response = auth.create_user_with_email_and_password(email, password)
-            email = response['email']
-            username = email.replace("@gmail.com", "")
-            idToken = response['idToken']
+            user = response['localId']
             new_user = {
                 'email': email,
-                'idToken': idToken,
+                'username': username,
                 'data': {
                     'attended': 0,
                     'skipped': 0,
                     'goal': 75
                 }
             }
-            db.child('users').child(username).set(new_user)
+            db.child('users').child(user).set(new_user)
         except Exception as e:
-            print(e.json().get('error', {}).get('message'))
+            message = "Invalid Credentials!"
+            return render_template('signup.html', message=message)
 
         return render_template("signin.html")
     return render_template("signup.html")
@@ -73,15 +72,19 @@ def signin():
     if request.method == "POST":
         email = request.form['email']
         password = request.form['password']
-
+        user, username = '', ''
         try:
-            user = auth.sign_in_with_email_and_password(email, password)
-            username = email.replace("@gmail.com", "")
-            session['user'] = username
+            response = auth.sign_in_with_email_and_password(email, password)
+            user = response['localId']
+            session['user'] = user
+            
         except Exception as e:
-            print(e.json().get('error', {}).get('message'))
-
-        return render_template("dashboard.html", username= username)
+            message = "Invalid Credentials!"
+            return render_template('signin.html', message=message)
+        else:
+            username = db.child('users').child(user).get().val()['username']    
+        
+        return render_template("dashboard.html", username = username)
     return render_template("signin.html")
 
 
@@ -89,6 +92,3 @@ def signin():
 def logout():
     session.pop('user', default=None)
     return redirect(url_for('index'))
-
-if __name__ == "__main__":
-    app.run(debug=True)
