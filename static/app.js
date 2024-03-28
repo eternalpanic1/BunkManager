@@ -76,6 +76,8 @@ function calculateAttendance() {
 function updateAttendance() {
     document.getElementById('attendedClasses').innerText = attended;
     document.getElementById('skippedClasses').innerText = skipped;
+    document.getElementById('goalPercentage').innerText = goal;
+    document.getElementById('goalRange').value = goal;
     calculateAttendance();
 }
 
@@ -94,6 +96,7 @@ function saveAttendance() {
         body: JSON.stringify(data)
     })
     .then(response => response.json())
+    .then(alert("Attendance saved Successfully!"))
     .catch(error => {
         console.error('Error:', error);
     });
@@ -110,5 +113,5 @@ document.getElementById('decreaseSkippedBtn').addEventListener('click', decrease
 document.getElementById('goalRange').addEventListener('input', goalChange);
 document.getElementById('saveBtn').addEventListener('click', saveAttendance);
 
-// Initialize attendance data and calculate attendance on page load
-updateAttendance();
+//
+document.getElementById('mainDiv').addEventListener('DOMContentLoaded', loadAttendance);

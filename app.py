@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, jsonify, session
+from flask import Flask, render_template, request, jsonify, session, redirect, url_for
 import pyrebase
 import json
 
@@ -40,7 +40,6 @@ def save_attendance():
     return jsonify({'message': 'Attendance saved successfully GG!'})
 
 
-#auth routes
 @app.route('/signup', methods=['GET','POST'])
 def signup():
     if request.method == "POST":
@@ -82,14 +81,14 @@ def signin():
         except Exception as e:
             print(e.json().get('error', {}).get('message'))
 
-        return render_template("dashboard.html")
+        return render_template("dashboard.html", username= username)
     return render_template("signin.html")
 
 
-@app.route('/logout', methods=['GET'])
+@app.route('/logout', methods=['GET', 'POST'])
 def logout():
     session.pop('user', default=None)
-    return render_template('index.html')
+    return redirect(url_for('index'))
 
 if __name__ == "__main__":
     app.run(debug=True)

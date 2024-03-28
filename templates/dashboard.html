@@ -1,7 +1,16 @@
 {% extends "base.html" %}
+
+{% block navbar%}
+    <div class="d-flex justify-content-center flex-grow-1">
+    <h4 class="m-0">Welcome {{ username }}</h4> </div>
+    <form class="form inline" method="POST" action="/logout">
+        <button class="btn btn-outline-danger me-2" type="submit">Logout</button> 
+    </form>
+{% endblock %}
+
 {% block body %}
 
-    <div class="container mt-5 text-center">
+    <div class="container mt-5 text-center" id="mainDiv">
 
         <h3> Total Classes: <span id="totalClasses">0</span></h3>
         <h4> Goal Percentage: <span id="goalPercentage">75</span>%</h4>
@@ -26,6 +35,12 @@
         </button>
     </div>  
 
-    <script src="static/app.js"></script>
+    
 
+    <script src="static/app.js"></script>
+    <script>
+        window.onload = function() {
+            loadAttendance();
+        };
+    </script>
 {% endblock %}
