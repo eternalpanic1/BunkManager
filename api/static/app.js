@@ -112,6 +112,3 @@ document.getElementById('increaseSkippedBtn').addEventListener('click', increase
 document.getElementById('decreaseSkippedBtn').addEventListener('click', decreaseSkipped);
 document.getElementById('goalRange').addEventListener('input', goalChange);
 document.getElementById('saveBtn').addEventListener('click', saveAttendance);
-
-//
-document.getElementById('mainDiv').addEventListener('DOMContentLoaded', loadAttendance);

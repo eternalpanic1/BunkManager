@@ -1,8 +1,6 @@
 {% extends "base.html" %}
 
 {% block navbar%}
-    <div class="d-flex justify-content-center flex-grow-1">
-    <h4 class="m-0">Welcome {{ username }}</h4> </div>
     <form class="form inline" method="POST" action="/logout">
         <button class="btn btn-outline-danger me-2" type="submit">Logout</button> 
     </form>
@@ -11,8 +9,9 @@
 {% block body %}
 
     <div class="container mt-5 text-center" id="mainDiv">
+        <h3 class="m-4">Welcome {{ username }}</h3>
 
-        <h3> Total Classes: <span id="totalClasses">0</span></h3>
+        <h4> Total Classes: <span id="totalClasses">0</span></h4>
         <h4> Goal Percentage: <span id="goalPercentage">75</span>%</h4>
         <input type="range" class="form-control-range" id="goalRange" min="0" max="100" oninput="goalChange()">
 
