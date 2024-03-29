@@ -1,13 +1,17 @@
 from flask import Flask, render_template, request, jsonify, session, redirect, url_for
 import pyrebase
-import json
+import os
 
 
 app = Flask(__name__)
 app.secret_key = '\xfd{H\xe5<\x95\xf9\xe3\x96.5\xd1\x01O<!\xd5\xa2\xa0\x9fR"\xa1\xa8'
 
-file = open('static/config.json')
-firebaseConfig = json.load(file)
+firebaseConfig = {
+    "apiKey": os.environ.get('apiKey'),
+    "authDomain": os.environ.get('authDomain'),
+    "storageBucket": os.environ.get('storageBucket'),
+    "databaseURL": os.environ.get('databaseURL') 
+}
 
 firebase = pyrebase.initialize_app(firebaseConfig)
 db = firebase.database()
