@@ -1,16 +1,16 @@
 {% extends "base.html" %}
-{% block body %}
 
-<div class="container d-flex justify-content-center align-items-center">
-  <div class="row">
-      <div class="col">
-        <h2 class="text-center">Welcome to Bunk Manager!</h2>
-        <div class="d-flex justify-content-center mt-4">
-          <a href="/signin" class="btn btn-info me-2" role="button">Sign In</a>
-          <a href="/signup" class="btn btn-info" role="button">Sign Up</a>
-      </div>
-      </div>
-  </div>
-</div>
+{% block head%}
+  <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/index.css') }}">
+{% endblock %}
+
+{% block body %}
+        <div id="body">
+          <h2 class="text-center text-focus-in">WELCOME TO <i>B</i>UNK <i>M</i>ANAGER!</h2>
+          <div class="d-flex justify-content-center mt-4">
+              <a href="/signin" role="button">Sign In</a>
+              <a href="/signup" role="button">Sign Up</a>
+          </div>
+        </div>
 
 {% endblock %}

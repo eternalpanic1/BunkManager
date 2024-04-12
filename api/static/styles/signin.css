@@ -1,0 +1,86 @@
+/* Set the background color */
+body {
+    font-family: Times New Roman, serif; /* Set the font family */
+    margin: 0; /* Remove default margin for better centering */
+    background-image: url("https://i.postimg.cc/mkChZ3sG/Grey-wall-2021-iphone.jpg");
+    background-repeat: no-repeat; /* Don't repeat the image */
+    background-size: cover;
+    height: 100vh;
+  }
+  
+  /* Style the heading */
+  h3.text-center {
+    color: #E09145; /* Orange color for heading */
+    text-align: center;
+    font-size: 30px;
+  }
+
+  /* Add a new class for the form container */
+.container {
+  background-color: rgb(23, 23, 23); /* Dark blue for the box background */
+  color: #FCD9B8; /* Cream color for text within the box */
+  padding: 30px; /* Add some padding inside the box */
+  border-radius: 50px; /* Rounded corners for the box */
+  margin: 0 auto; /* Center the box horizontally */
+  width: 350px; /* Set a width for the box */
+  box-shadow: 0 0 20px 10px rgba(240, 219, 200, 0.169); 
+}
+ 
+  /* Style the form and labels */
+  .form-label {
+    color: #FCD9B8; /* Cream color for labels */
+  }
+  
+  /* Style the input fields */
+  .form-control { 
+    border: 1px solid #292C35; /* Thin dark blue border */
+    /* Adjust placeholder color as needed */
+    &::placeholder {
+      color: #292C35; /* Light gray for placeholder text */
+      text-align: center;
+    }
+    border-radius: 40px;
+  }
+  
+  /* Style the button */
+  .custom-button {
+    background-color: rgba(231, 170, 112, 0.176); /* Dark blue background */
+    border: 1px solid #292C35; /* Dark blue border */
+    color: #FCD9B8; /* Cream color text */
+    border-radius: 40px;
+    padding: 8px 40px;
+    cursor: pointer; /* Indicate interactivity */
+  }
+  .custom-button:hover {
+    background-color: #28231c; /* Darken background on hover */
+    color: #E09145;
+    border-color: #17181D;
+  }
+  
+  
+  /* Style the error message (optional) */
+  .text-danger {
+    color: #E09145; /* Orange color for ill  error message */
+  }
+
+
+/* 😎 */
+/* nice... atb ig  */
+
+
+
+
+
+
+@media (max-width: 768px) {
+  /* Styles for screens smaller than 768px (typical mobile breakpoint) */
+  body{
+    background-image: url("https://i.pinimg.com/564x/5e/8d/25/5e8d25dab76a95fdd159b8e8766cd448.jpg");
+  }
+}
+
+
+
+
+
+
