@@ -1,13 +1,10 @@
 from flask import Flask, render_template, request, jsonify, session, redirect, url_for
 import pyrebase
-from dotenv import load_dotenv
 import os
 
 
 app = Flask(__name__)
 app.secret_key = os.urandom(36)
-
-load_dotenv('.env')
 
 firebaseConfig = {
     "apiKey": os.environ.get('apiKey'),
@@ -21,16 +18,26 @@ db = firebase.database()
 auth = firebase.auth()
 
 
+#error handling
+@app.errorhandler(404)
+def not_found(e):
+    return render_template('404.html')
+
+
 #attendance management routes
 @app.route('/')
 def index():
     logout()
     return render_template('index.html')
 
+
 @app.route('/dashboard', methods=['GET','POST'])
 def dashboard():
-    username = session['username']
-    return render_template('dashboard.html', username=username)
+    try:
+        username = session['username']
+        return render_template('dashboard.html', username=username)
+    except Exception as e:
+        return "<h1>first login brother</h1>"
 
 
 @app.route('/loadAttendance', methods=['GET', 'POST'])
@@ -108,6 +115,3 @@ def logout():
     session.pop('user', default=None)
     session.pop('username', default=None)
     return redirect(url_for('index'))
-    
-if __name__ == "__main__":
-    app.run(debug=True, host='0.0.0.0')
