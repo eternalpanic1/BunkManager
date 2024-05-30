@@ -1,0 +1,113 @@
+/* Set the background color */
+body {
+    font-family: Times New Roman, serif;
+    margin: 0; /* Remove default margin for better centering */
+    background-image: url("https://i.postimg.cc/mkChZ3sG/Grey-wall-2021-iphone.jpg");
+    background-repeat: no-repeat; /* Don't repeat the image */
+    background-size: cover;
+    height: 100vh;
+  }
+
+  /* Center content at 50% height (adjust as needed) */
+  .container {
+    display: flex; /* Make the container a flexbox */
+    flex-direction: column; /* Arrange elements vertically by default */
+    justify-content: center; /* Align content vertically in the center */
+    align-items: center; /* Align content horizontally in the center */
+    height: calc(50vh - 20px); /* Set container height to 50% viewport height minus padding */
+    margin: 0 auto; /* Add horizontal centering */
+  }
+  
+  /* Style the heading */
+  h2.text-center {
+    margin-top: 250px;
+    color: #E09145; /* Orange for the heading */
+    text-align: center;
+    font-weight: bold;
+    font-size: 45px;
+
+  }
+
+
+/* heading animation */
+.text-focus-in {
+	-webkit-animation: text-focus-in 1s cubic-bezier(0.550, 0.085, 0.680, 0.530) both;
+	        animation: text-focus-in 1s cubic-bezier(0.550, 0.085, 0.680, 0.530) both;
+}
+
+@-webkit-keyframes text-focus-in {
+  0% {
+    -webkit-filter: blur(12px);
+            filter: blur(12px);
+    opacity: 0;
+  }
+  100% {
+    -webkit-filter: blur(0px);
+            filter: blur(0px);
+    opacity: 1;
+  }
+}
+@keyframes text-focus-in {
+  0% {
+    -webkit-filter: blur(12px);
+            filter: blur(12px);
+    opacity: 0;
+  }
+  100% {
+    -webkit-filter: blur(0px);
+            filter: blur(0px);
+    opacity: 1;
+  }
+} 
+  
+  /* Style the buttons */
+  .d-flex a {
+    color: #FCD9B8; /* Cream color for button text */
+    background-color: #31343f; /* Dark blue for button background */
+    padding: 10px 70px; /* Adjust padding on mobile */
+    border: none; /* Remove default border */
+    border-radius: 40px; /* Adjust corner radius on mobile */
+    margin: 0 10px; /* Adjust spacing between buttons on mobile */
+    text-decoration: none; /* Remove underline from text */
+    display: inline-block; /* Make buttons behave like inline elements */
+  }
+  
+  /* Style the button hover effect (optional) */
+  .d-flex a:hover {
+    background-color: #22242c; /* Darken background on hover */
+    color: #E09145; /* Change text color on hover */
+  }
+  .d-flex a:active {
+    background-color: #17181D; /* Change background color on click */
+    color:  #E09145; /* Change text color on click (optional) */
+  }
+  
+  /* Media Queries for Mobile Responsiveness */
+  @media (max-width: 768px) {
+    /* Styles for screens smaller than 768px (typical mobile breakpoint) */
+    .container {
+      height: auto; /* Remove fixed height for mobile */
+    }
+  
+    h2.text-center {
+      font-size: 30px; /* Adjust heading size for mobile */
+      margin-top: 250px;
+    }
+  
+    .d-flex a {
+      padding: 8px 40px; /* Adjust button padding for mobile */
+      margin: 0 10px; /* Adjust button spacing for mobile */
+      border-radius: 40px;
+      margin: 0 10px;
+    }
+    body{
+      background-image: url("https://i.pinimg.com/564x/5e/8d/25/5e8d25dab76a95fdd159b8e8766cd448.jpg");
+    }
+  }
+  
+
+
+
+
+
+  

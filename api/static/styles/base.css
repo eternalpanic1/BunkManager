@@ -1,0 +1,27 @@
+body {
+    background-color: #17181D;
+    font-family: Times New Roman, serif;
+    margin: 0;
+  }
+  
+  .navbar-light .navbar-nav .nav-link {
+    color: #FCD9B8;
+  }
+  
+  .navbar-light .navbar-brand {
+    color: #E09145;
+  }
+  
+  .navbar-light .navbar-toggler {
+    border-color: #292C35;
+  }
+  
+  .navbar img{
+    width: 2px;
+    height: 2px;
+  }
+
+img {
+  width: 45px;
+  height: 45px;
+}

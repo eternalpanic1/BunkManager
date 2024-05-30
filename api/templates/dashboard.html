@@ -1,45 +1,51 @@
 {% extends "base.html" %}
 
+{% block head %}
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles/dashboard.css') }}">
+{% endblock %}
+
 {% block navbar%}
     <form class="d-flex" method="POST" action="/logout">
-        <button class="btn btn-outline-danger me-2" type="submit">Logout</button>
+        <button type="submit" class="logout">Logout <i class="fa-solid fa-right-from-bracket"></i></button>
     </form>
 {% endblock %}
 
 {% block body %}
+<div id="mainDiv">
 
-    <div class="container mt-5 text-center" id="mainDiv">
-        <h3 class="m-4">Welcome {{ username }}</h3>
+  <h3>Welcome {{ username }}</h3>
 
-        <h4> Total Classes: <span id="totalClasses">0</span></h4>
-        <h4> Goal Percentage: <span id="goalPercentage">75</span>%</h4>
-        <input type="range" class="form-control-range" id="goalRange" min="0" max="100" oninput="goalChange()">
-
-        <h4> Attended: <span id="attendedClasses">0</span></h4>
-        <button class="btn btn-danger" onclick="decreaseAttended()">-</button>
-        <button class="btn btn-success" onclick="increaseAttended()">+</button>
-
-        <h4> Skipped: <span id="skippedClasses">0</span></h4>
-        <button class="btn btn-danger" onclick="decreaseSkipped()">-</button>
-        <button class="btn btn-success" onclick="increaseSkipped()">+</button>
-
-        <h4> Current Percentage: <span id="currentPercentage">0</span>%</h4>
-        <p id="message"></p>
-
-        <button class="btn btn-primary" onclick="loadAttendance()">
-            <span>Load Attendance</span>
-        </button>
-        <button class="btn btn-primary" onclick="saveAttendance()">
-            <span>Save Attendance</span>
-        </button>
-    </div>  
-
+  <div class="container">
+    <h4> Total Classes: <span id="totalClasses">0</span></h4>
+    <h4> Goal Percentage: <span id="goalPercentage">75</span>%</h4>
+    <input type="range" id="goalRange" min="0" max="100" oninput="goalChange()">
     
+    <h4> Attended: <span id="attendedClasses">0</span></h4>
+    <button onclick="decreaseAttended()" class="btn btn-secondary"><i class="fa-solid fa-minus"></i></button>
+    <button onclick="increaseAttended()" class="btn btn-secondary"><i class="fa-solid fa-plus"></i></button>
 
-    <script src="static/dashboard.js"></script>
-    <script>
-        window.onload = function() {
-            loadAttendance();
-        };
-    </script>
+    <h4> Skipped: <span id="skippedClasses">0</span></h4>
+    <button onclick="decreaseSkipped()" class="btn btn-secondary"><i class="fa-solid fa-minus"></i></button>
+    <button onclick="increaseSkipped()" class="btn btn-secondary"><i class="fa-solid fa-plus"></i></button>
+    
+    <h4> Current Percentage: <span id="currentPercentage">0</span>%</h4>
+    <p id="message"></p>
+
+    <button class="btn btn-warning" onclick="loadAttendance()">
+        <span>Load <i class="fa-solid fa-bars-progress"></i></span>
+    </button>
+    <button class="btn btn-warning" onclick="saveAttendance()">
+        <span>Save <i class="fa-solid fa-bookmark"></i></span>
+    </button> 
+  </div>
+</div>  
+
+
+
+<script src="static/dashboard.js"></script>
+<script>
+    window.onload = function() {
+        loadAttendance();
+    };
+</script>
 {% endblock %}

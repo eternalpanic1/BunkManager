@@ -1,0 +1,137 @@
+body {
+    font-family: Times New Roman, serif;
+    margin: 0;
+    background-image: url("https://i.postimg.cc/mkChZ3sG/Grey-wall-2021-iphone.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100vh;
+    color: #FCD9B8;
+  }
+  #mainDiv {
+    text-align: center;
+    margin-top: 40px;
+  } 
+  h3{
+    color: #E09145;
+    text-align: center;
+    font-weight: bold;
+    font-size: 35px;
+    padding: 20px;
+  }
+  .container {
+    background-color: rgb(23, 23, 23);
+    border-radius: 50px;
+    margin-top: 20px;
+    width: 450px;
+    padding: 40px;
+    border-radius: 40px;
+    text-align: center;
+    box-shadow: 0 0 20px 10px rgba(240, 219, 200, 0.169); 
+  }
+
+ 
+  /* load and save buttons */
+  .btn-warning {
+    background-color: rgba(101, 95, 90, 0.384);
+    border-color: #292C35;
+    color: #FCD9B8;
+    border-radius: 20px;
+    padding: 8px 40px;
+    margin: 5px;
+  }
+  .btn-warning:hover {
+    background-color: #252831; 
+    color: #E09145;
+    border-color: #17181D;
+  }
+  .btn-warning .fa-solid {
+    margin-left: 5px;
+    color: white;
+  }
+
+/* plus and minus */
+  .btn-secondary {
+    background-color: rgba(101, 95, 90, 0.384);
+    border-color: #292C35;
+    color: #FCD9B8;
+    border-radius: 40px;
+    padding: 6px 10px;
+    padding-right: 13px;
+  }
+  .btn-secondary:hover {
+    background-color: #252831; 
+    color: #E09145;
+    border-color: #17181D;
+  }
+  .btn-secondary .fa-solid {
+    color: white;
+  }
+
+/* logout */
+ button{
+  background-color: rgba(101, 95, 90, 0.384);
+  border: 1px solid #292C35;
+  border-radius: 5px;
+  padding: 6px 15px;
+  font-size: 16px;
+  cursor: pointer;
+  color: white;
+}
+button:hover {
+  background-color: #33363f;
+  color: #FCD9B8;
+  border-color: #17181D;
+}
+button .fa-solid {
+  margin-left: 5px;
+}
+
+/* goalrange */
+  #goalRange {
+    -webkit-appearance: none;
+    width: 60%;
+    height: 10px;
+    background-color: rgba(101, 95, 90, 0.384);
+    border-radius: 5px;
+    outline: none;
+  }
+
+  #goalRange::-webkit-slider-runnable-track {
+    background-color: rgba(125, 125, 125, 0.3);
+    border: 0;
+    border-radius: 15px;
+  }
+
+  #goalRange::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    background-color: white;
+    border: 0.75px solid #292C35;
+    height: 20px;
+    width: 20px;
+    border-radius: 50%;
+    cursor: pointer;
+  }
+
+  @media (max-width: 515px) {
+   
+    body{
+      background-image: url("https://i.pinimg.com/564x/5e/8d/25/5e8d25dab76a95fdd159b8e8766cd448.jpg");
+    }
+    .container {
+      margin: 15px;
+      padding: 20px;
+      padding-top: 30px;
+      padding-bottom: 30px;
+    }
+    .btn-primary {
+      width:150px;
+      padding: 8px 30px;
+      margin: 0px;
+    }
+  }
+
+  @media (max-width: 600px) {
+    .container{
+      width:90%;
+    }
+  }

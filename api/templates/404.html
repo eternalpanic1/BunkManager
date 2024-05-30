@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Google tag (gtag.js) -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-1752YPLP7H"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "G-1752YPLP7H");
+    </script>
+    <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/404.css') }}">
+    <link rel="icon" type="image/x-icon" href="../images/tsParticles-64.png" />
+  </head>
+
+  <body class="permission_denied">
+    <div id="tsparticles"></div>
+    <div class="denied__wrapper">
+      <h1>404</h1>
+      <h3>
+        Looks like that page doesn't exist.
+      </h3>
+      <a href="/"><button class="denied__link">Go Home</button></a>
+    </div>
+
+    <script
+      type="text/javascript"
+      src="https://cdn.jsdelivr.net/npm/tsparticles@2/tsparticles.bundle.min.js"
+    ></script>
+    <script>
+        const particles = {
+            fpsLimit: 60,
+            particles: {
+              number: {
+                value: 160,
+                density: {
+                  enable: true,
+                  area: 800,
+                },
+              },
+              color: {
+                value: "#ffffff",
+              },
+              shape: {
+                type: "circle",
+              },
+              opacity: {
+                value: 1,
+                random: {
+                  enable: true,
+                  minimumValue: 0.1,
+                },
+                animation: {
+                  enable: true,
+                  speed: 1,
+                  minimumValue: 0,
+                  sync: false,
+                },
+              },
+              size: {
+                value: 3,
+                random: {
+                  enable: true,
+                  minimumValue: 1,
+                },
+              },
+              move: {
+                enable: true,
+                speed: 0.17,
+                direction: "none",
+                random: true,
+                straight: false,
+                outModes: {
+                  default: "out",
+                },
+              },
+            },
+            interactivity: {
+              detectsOn: "canvas",
+              events: {
+                resize: false,
+              },
+            },
+            detectRetina: true,
+          };
+          
+          tsParticles.load("tsparticles", particles);
+    </script>
+  </body>
+</html>
